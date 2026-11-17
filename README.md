@@ -50,6 +50,7 @@ flowchart LR
     C -- "needs a person" --> H["<b>human_review</b><br/>graph pauses"]
     H -- "approve, edit<br/>or reject" --> D(["<b>Reviewed</b>"])
     H -.- DB[("<b>SQLite</b><br/>saved state")]
+    D ~~~ P1[" "] ~~~ P2[" "]
 
     classDef code fill:#d7f0e6,stroke:#0f6e56,color:#04342c
     classDef model fill:#e5e2fb,stroke:#534ab7,color:#26215c
@@ -59,7 +60,10 @@ flowchart LR
     class G model
     class S,H,D person
     class T,DB plain
-    style CP fill:#fafaf7,stroke:#b4b2a9,color:#2c2c2a
+    classDef ghost fill:none,stroke:none
+    class P1,P2 ghost
+    style CP fill:none,stroke:#888780,color:#888780
+    linkStyle 0,1,2,3,4,5,6 stroke:#888780,stroke-width:1.5px
 ```
 
 Green steps are code, the purple step is the model, orange is where a person
